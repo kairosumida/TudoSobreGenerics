@@ -12,6 +12,7 @@
 		6BA0B55F283401720073589B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0B55E283401720073589B /* Assets.xcassets */; };
 		6BA0B562283401720073589B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0B561283401720073589B /* Preview Assets.xcassets */; };
 		6BA0B5692834036C0073589B /* Programiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0B5682834036C0073589B /* Programiz.swift */; };
+		6BA0B56B283440BD0073589B /* TheSwiftProgrammingLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0B56A283440BD0073589B /* TheSwiftProgrammingLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		6BA0B55E283401720073589B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BA0B561283401720073589B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6BA0B5682834036C0073589B /* Programiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programiz.swift; sourceTree = "<group>"; };
+		6BA0B56A283440BD0073589B /* TheSwiftProgrammingLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSwiftProgrammingLanguage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				6BA0B55E283401720073589B /* Assets.xcassets */,
 				6BA0B560283401720073589B /* Preview Content */,
 				6BA0B5682834036C0073589B /* Programiz.swift */,
+				6BA0B56A283440BD0073589B /* TheSwiftProgrammingLanguage.swift */,
 			);
 			path = TudoSobreGenerics;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				6BA0B55D2834016F0073589B /* ContentView.swift in Sources */,
 				6BA0B5692834036C0073589B /* Programiz.swift in Sources */,
 				6BA0B55B2834016F0073589B /* TudoSobreGenericsApp.swift in Sources */,
+				6BA0B56B283440BD0073589B /* TheSwiftProgrammingLanguage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
