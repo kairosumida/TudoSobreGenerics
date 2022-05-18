@@ -1,7 +1,7 @@
 # TudoSobreGenerics
 <li>Referencias: </li>
 <ul> 1 - https://www.programiz.com/swift-programming/generics </ul>
-<ul> 2 - </ul>
+<ul> 2 - https://docs.swift.org/swift-book/LanguageGuide/Generics.html </ul>
 
 <h1> Função Genérica </h1>
 <p>Criamos uma função generica quando </p>
@@ -59,4 +59,59 @@ func addition<T: Numeric>(num1: T, num2: T){
 }
 ```
 <p>Obs: Não é possivel passar um tipo na hora de criar a classe, mesmo que esteja em conformidade com o tipo T</p>
-<p>Por exemplo: func addition<T: Numeric>(num: T){} Não é possivel chamar dessa forma: addition<Int>(num: 5). O certo é: addition(num: 5)</p>
+<p>Por exemplo: func addition&ltT: Numeric&gt(num: T){} Não é possivel chamar dessa forma: addition$ltInt$gt(num: 5). O certo é: addition(num: 5)</p>
+
+  
+<h1> Clausula where </h1>
+<p> Usamos uma clausula where quando queremos usar uma funcionalidade em algum método</p>
+<h2> Na função </h2>
+```Swift
+  struct Informationt<T>{
+    
+    var data: T
+    init (data: T){
+        self.data = data
+    }
+    func getData() -> T where T == Int{ //So vai ser possivel chamar esse metodo se o valor de T for uma int
+        return self.data
+    }
+}
+```
+<p> Isso nos permite ter varios metodos com a mesma assinatura porem com where diferentes</p>
+```Swift
+extension Informationt {
+    func getCalcula() -> String where T == Int{
+        return String("é uma Int")
+    }
+    func getCalcula() -> String where T == String{
+        return String("é uma String")
+    }
+}
+```
+
+<h2> No extension</h2>
+
+```Swift
+extension Informationt where T == Int{
+    func getCalcula() -> String{
+        return String("é uma Int")
+    }
+    
+}
+```
+
+<p> O mesmo vale para o extension, podemos ter varios metodos que se comportam de alguma maneira quando o genérico é uma Int e se comportam de outra maneira quando ele é uma String</p>
+
+```Swift
+extension Informationt where T == Int{
+    func getCalcula() -> String {
+        return String("é uma Int")
+    }
+}
+extension Informationt where T == String{
+    func getCalcula() -> String {
+        return String("é uma String")
+    }
+}
+```
+
