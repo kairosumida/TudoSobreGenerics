@@ -11,90 +11,72 @@ struct TheSwiftProgrammingLanguage: View {
     var body: some View {
         ZStack{
             VStack{
-                Text(executar1())
-                Spacer()
-                Text(executar2())
-                Spacer()
-                Text(executar3())
+                Text(executa1r())
             }
         }
     }
 }
-
-struct Stack<T>{
-    var items: [T] = []
-    mutating func push(_ item: T){
-        items.append(item)
-    }
-    mutating func pop() -> T {
-        return items.removeLast()
-    }
+func executa1r() -> String{
+    var t = Informationt(data: "sss")
+    return String(t.getCalcula())
 }
-extension Stack{
-    var topItem: T? {
-        return items.isEmpty ? nil : items[items.count - 1]
-    }
-}
-func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
+protocol Container {
+    associatedtype T
+    mutating func append(_ item: T)
+    var count: Int { get }
+    subscript(i: Int) -> T { get }
+    associatedtype C: IteratorProtocol where C.Element == T
+    func makeIterator() -> C
 }
 
+protocol ComparableContainer: Container where T: Comparable{}
+
+extension Container{
+    subscript<Indices: Sequence>(indices: Indices) -> [T]
+    where Indices.Iterator.Element == Int{
+    var result: [T] = []
+    for index in indices {
+        result.append(self[index])
+    }
+    return result
+    }
+}
+struct Informationt<T>{
+    
+    var data: T
+    init (data: T){
+        self.data = data
+    }
+    func getData() -> T where T == Int{
+        return self.data
+    }
+}
+extension Informationt where T == Int{
+    func getCalcula() -> String {
+        return String("é uma Int")
+    }
+}
+extension Informationt where T == String{
+    func getCalcula() -> String {
+        return String("é uma String")
+    }
+}
+
+extension Container {
+    func average() -> Double where T == Int {
+        var sum = 0.0
+        
+        for index in 0..<count {
+            sum += Double(self[index])
+        }
+        return sum / Double(count)
+    }
+    func endsWith(_ item: T) -> Bool where T: Equatable {
+        return count >= 1 && self[count-1] == item
+    }
+}
 struct TheSwiftProgrammingLanguage_Previews: PreviewProvider {
     static var previews: some View {
         TheSwiftProgrammingLanguage()
     }
-}
-
-protocol Container{
-    associatedtype T: Equatable
-    mutating func append(_ item: T)
-    var count: Int { get }
-    subscript(i: Int) -> T { get }
-}
-struct IntStack<T: Equatable>: Container{
-    var items: [T] = []
-    mutating func push(_ item: T){
-        items.append(item)
-    }
-    mutating func pop() -> T {
-        return items.removeLast()
-    }
-    mutating func append(_ item: T) {
-        self.push(item)
-    }
-    var count: Int{
-        return items.count
-    }
-    subscript(i: Int) -> T {
-        return items[i]
-    }
-}
-func executar3() -> String{
-    var stacks = IntStack<String>()
-    stacks.push("abc")
-    stacks.push("cde")
-    return stacks[1]
-}
-func executar2() -> String{
-    var stackOfString = Stack<String>()
-    stackOfString.push("uno")
-    stackOfString.push("dos")
-    stackOfString.push("tres")
-    stackOfString.push("cuatro")
-    let fromTheTop = stackOfString.pop()
-    if let topItem = stackOfString.topItem{
-        return topItem
-    }
-    return fromTheTop
-}
-func executar1() -> String{
-    var valor1: Int = 5
-    var valor2: Int = 9
-    swapTwoValues(&valor1, &valor2)
-    var string1: String = "hello"
-    var string2: String = "world"
-    swapTwoValues(&string1, &string2)
-    return "valor1: \(valor1) valor2: \(valor2)\n string1: \(string1) string2: \(string2)"
 }
