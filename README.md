@@ -58,6 +58,7 @@ func addition<T: Numeric>(num1: T, num2: T){
     ...
 }
 ```
+
 <p>Obs: Não é possivel passar um tipo na hora de criar a classe, mesmo que esteja em conformidade com o tipo T</p>
 <p>Por exemplo: func addition&ltT: Numeric&gt(num: T){} Não é possivel chamar dessa forma: addition$ltInt$gt(num: 5). O certo é: addition(num: 5)</p>
 
@@ -65,6 +66,7 @@ func addition<T: Numeric>(num1: T, num2: T){
 <h1> Clausula where </h1>
 <p> Usamos uma clausula where quando queremos usar uma funcionalidade em algum método</p>
 <h2> Na função </h2>
+
 ```Swift
   struct Informationt<T>{
     
@@ -77,7 +79,9 @@ func addition<T: Numeric>(num1: T, num2: T){
     }
 }
 ```
+
 <p> Isso nos permite ter varios metodos com a mesma assinatura porem com where diferentes</p>
+
 ```Swift
 extension Informationt {
     func getCalcula() -> String where T == Int{
